@@ -57,11 +57,35 @@ private Answer unitAnswer;
 	}
 	
 	@Test
-	public void sameUservoteTest() throws Exception {
+	public void sameUserUpVoteQuestionTest() throws Exception {
 		thrown.expect(VotingException.class);
 	    thrown.expectMessage("You cannot vote for yourself!");
 	    
 		userA.upVote(unitQuestion);
+	}
+	
+	@Test
+	public void sameUserDownVoteQuestionTest() throws Exception {
+		thrown.expect(VotingException.class);
+	    thrown.expectMessage("You cannot vote for yourself!");
+	    
+		userB.downVote(unitAnswer);
+	}
+	
+	@Test
+	public void sameUserUpVoteAnswerTest() throws Exception {
+		thrown.expect(VotingException.class);
+	    thrown.expectMessage("You cannot vote for yourself!");
+	    
+		userB.upVote(unitAnswer);
+	}
+	
+	@Test
+	public void sameUserDownVoteAnswerTest() throws Exception {
+		thrown.expect(VotingException.class);
+	    thrown.expectMessage("You cannot vote for yourself!");
+	    
+		userA.downVote(unitQuestion);
 	}
 	
 	@Test
